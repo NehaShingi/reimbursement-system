@@ -1,4 +1,4 @@
-**ReimbursePro **
+**ReimbursePro**
 
 A modern, streamlined expense management system built with Editorial Minimalism. ReimbursePro provides a high-fidelity solution for managing corporate expenditures, bridging the gap between financial complexity and intuitive user experience.
 
