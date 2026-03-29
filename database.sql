@@ -6,9 +6,10 @@ CREATE TABLE users (
   id INT PRIMARY KEY AUTO_INCREMENT,
   name VARCHAR(100),
   email VARCHAR(100) UNIQUE,
-  password VARCHAR(100),
-  role VARCHAR(50), -- employee / manager / admin
+  password VARCHAR(255),
+  role ENUM( 'employee','manager','admin')
   manager_id INT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (manager_id) REFERENCES users(id)
 );
 
@@ -22,7 +23,7 @@ CREATE TABLE expenses (
   amount DECIMAL(10,2),
   paid_by VARCHAR(50),
   receipt_url VARCHAR(255),
-  status VARCHAR(50), -- draft / pending / approved / rejected
+  status ENUM('pending' , 'approved' , 'rejected')
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (user_id) REFERENCES users(id)
 );
@@ -32,7 +33,7 @@ CREATE TABLE approvals (
   id INT PRIMARY KEY AUTO_INCREMENT,
   expense_id INT,
   approver_id INT,
-  status VARCHAR(50), -- pending / approved / rejected
+  status ENUM('pending' , 'approved' , 'rejected')
   step_number INT,
   comments VARCHAR(255),
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -48,6 +49,7 @@ CREATE TABLE approval_rules (
   min_amount DECIMAL(10,2),
   max_amount DECIMAL(10,2),
   created_by INT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (created_by) REFERENCES users(id)
 );
 
@@ -62,7 +64,7 @@ CREATE TABLE rule_approvers (
   FOREIGN KEY (approver_id) REFERENCES users(id)
 );
 
--- Reciepts Table
+-- Receiepts Table
 CREATE TABLE receipts (
   id INT PRIMARY KEY AUTO_INCREMENT,
   expense_id INT,
