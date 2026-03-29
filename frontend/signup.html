@@ -6,8 +6,9 @@
     <title>Create Account | ReimbursePro</title>
     <meta name="description" content="Join ReimbursePro to manage your company expenses.">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
-<body>
+<body class="auth-body">
 
     <div class="brand-header">
         <div class="logo-wrapper">
@@ -99,74 +100,6 @@
         </div>
     </div>
 
-    <script>
-        // Password toggle logic
-        const toggleBtn = document.getElementById('togglePassword');
-        const passwordInput = document.getElementById('password');
-        const eyeShow = document.getElementById('eyeShow');
-        const eyeHide = document.getElementById('eyeHide');
 
-        toggleBtn.addEventListener('click', () => {
-            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-            passwordInput.setAttribute('type', type);
-            if (type === 'text') {
-                eyeShow.style.display = 'none';
-                eyeHide.style.display = 'block';
-            } else {
-                eyeShow.style.display = 'block';
-                eyeHide.style.display = 'none';
-            }
-        });
-
-        // Currency Mapping logic
-        const currencyMap = {
-            'US': 'USD', 'GB': 'GBP', 'IN': 'INR', 'CA': 'CAD',
-            'AU': 'AUD', 'DE': 'EUR', 'FR': 'EUR', 'JP': 'JPY'
-        };
-
-        const countrySelect = document.getElementById('country');
-        const currencyBadge = document.getElementById('currencyBadge');
-        const currencyInput = document.getElementById('currency');
-
-        countrySelect.addEventListener('change', function() {
-            const currency = currencyMap[this.value] || 'N/A';
-            currencyBadge.textContent = currency;
-            currencyInput.value = currency;
-        });
-
-        // Form validation
-        document.getElementById('signupForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            let isValid = true;
-            const fields = ['name', 'email', 'password', 'company', 'country'];
-            
-            fields.forEach(fieldId => {
-                const input = document.getElementById(fieldId);
-                const group = document.getElementById(fieldId + 'Group') || input.parentElement;
-                group.classList.remove('invalid');
-                
-                if (input.value.trim() === '') {
-                    group.classList.add('invalid');
-                    isValid = false;
-                }
-                
-                if (fieldId === 'email' && input.value !== '') {
-                    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value)) {
-                        group.classList.add('invalid');
-                        isValid = false;
-                    }
-                }
-
-                if (fieldId === 'password' && input.value !== '' && input.value.length < 8) {
-                    group.classList.add('invalid');
-                    isValid = false;
-                }
-            });
-
-            if (isValid) {
-                alert('Success! Your company account is ready.');
-            }
-        });
-    </script>
 </body>
 </html>
