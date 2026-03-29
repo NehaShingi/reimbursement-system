@@ -3,6 +3,7 @@
 A modern, streamlined expense management system built with Editorial Minimalism. ReimbursePro provides a high-fidelity solution for managing corporate expenditures, bridging the gap between financial complexity and intuitive user experience.
 
 -  Highlights
+  
 OCR Scan: Snap and upload receipts instantly, with automatic form-filling capabilities.
 
 Smart Tracker: Real-time currency conversion (USD/EUR to INR) using live conversion rates.
@@ -14,6 +15,7 @@ Hybrid Rules: Advanced approval logic including 60% threshold rules and specific
 Dashboards: Dedicated, role-based views for Employees, Managers, and Admins.
 
 - Tech Stack
+  
 Frontend: HTML5, Vanilla CSS, JavaScript (ES6+).
 
 Backend: Node.js, Express, MySQL.
@@ -23,6 +25,7 @@ Design: "Atelier Void" style featuring Emerald Green (#10B981).
 File Handling: Multer for secure local receipt storage.
 
 - Getting Started
+  
 1. Database Configuration
 Import the provided database.sql into your MySQL instance.
 
@@ -50,6 +53,7 @@ node backend/server.js
 Open frontend/login.html in your browser to begin.
 
 - Approval Logic & Sequence
+  
 ReimbursePro supports an admin-defined vertical pipeline:
 
 Sequence: Expenses move sequentially (e.g., Manager → Finance → CFO).
