@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard | ReimbursePro</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="employeeds.js" defer></script>
+</head>
+
+<body class="dashboard-page">
+
+    <!-- Top Navigation -->
+    <nav class="dashboard-nav">
+        <div class="nav-left">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="9" y1="3" x2="9" y2="21"></line>
+            </svg>
+            <h1>Employee Dashboard</h1>
+        </div>
+        <div class="nav-right">
+            <div class="notification-bell">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                </svg>
+                <span class="dot"></span>
+            </div>
+            <div class="user-profile">
+                <div class="initials-circle">JD</div>
+                <div class="user-info">
+                    <span class="user-name">John Doe</span>
+                    <span class="user-role">Admin</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tab Bar -->
+    <div class="tab-bar">
+        <button class="tab-btn active" data-tab="approved">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Approved
+            <span class="tab-counter">2</span>
+        </button>
+        <button class="tab-btn" data-tab="pending">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            Pending
+            <span class="tab-counter">2</span>
+        </button>
+        <button class="tab-btn" data-tab="rejected">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+            Rejected
+            <span class="tab-counter">2</span>
+        </button>
+        <button class="tab-btn" data-tab="submit">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+            Submit New Expense
+        </button>
+    </div>
+
+    <!-- Approved Section -->
+    <section id="approvedSection" class="dashboard-section active">
+        <div class="content-card">
+            <h2>Approved Expenses</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Date</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="desc-col">Client dinner — NYC</td>
+                        <td class="category-col">Meals</td>
+                        <td class="date-col">Mar 28, 2026</td>
+                        <td class="amount-col">$245.00</td>
+                        <td><span class="badge badge-approved">Approved</span></td>
+                    </tr>
+                    <tr>
+                        <td class="desc-col">Software license renewal</td>
+                        <td class="category-col">Software</td>
+                        <td class="date-col">Mar 25, 2026</td>
+                        <td class="amount-col">$99.00</td>
+                        <td><span class="badge badge-approved">Approved</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Pending Section -->
+    <section id="pendingSection" class="dashboard-section">
+        <div class="content-card">
+            <h2>Pending Expenses</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Date</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="desc-col">Flight to San Francisco</td>
+                        <td class="category-col">Travel</td>
+                        <td class="date-col">Mar 26, 2026</td>
+                        <td class="amount-col">$389.00</td>
+                        <td><span class="badge badge-pending">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td class="desc-col">Team lunch</td>
+                        <td class="category-col">Meals</td>
+                        <td class="date-col">Mar 23, 2026</td>
+                        <td class="amount-col">$182.00</td>
+                        <td><span class="badge badge-pending">Pending</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Rejected Section -->
+    <section id="rejectedSection" class="dashboard-section">
+        <div class="content-card">
+            <h2>Rejected Expenses</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Date</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="desc-col">Unapproved hotel stay</td>
+                        <td class="category-col">Travel</td>
+                        <td class="date-col">Mar 20, 2026</td>
+                        <td class="amount-col">$520.00</td>
+                        <td><span class="badge badge-rejected">Rejected</span></td>
+                    </tr>
+                    <tr>
+                        <td class="desc-col">Personal uber ride</td>
+                        <td class="category-col">Transport</td>
+                        <td class="date-col">Mar 18, 2026</td>
+                        <td class="amount-col">$45.00</td>
+                        <td><span class="badge badge-rejected">Rejected</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Submit Section -->
+    <section id="submitSection" class="dashboard-section">
+        <div class="submission-stack">
+            <!-- OCR / Upload Section -->
+            <div class="content-card submission-card">
+                <div class="upload-zone" id="ocrUploadZone">
+                    <div class="upload-icons-row">
+                        <div class="upload-icon-circle">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                        </div>
+                        <div class="upload-icon-circle">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                        </div>
+                    </div>
+                    <div class="upload-text">
+                        <h3>Scan Receipt or Upload File</h3>
+                        <p>PNG, JPG, PDF up to 10MB</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expense Details Form -->
+            <div class="content-card submission-card">
+                <h2 style="font-size: 20px; font-weight: 700; margin-bottom: 32px;">Expense Details</h2>
+                <form id="expenseForm">
+                    <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px;">
+                        <div class="form-group">
+                            <label>Amount *</label>
+                            <input type="text" id="amountInput" class="form-control" placeholder="0.00" style="background-color: #f9fafb;">
+                        </div>
+                        <div class="form-group">
+                            <label>Currency</label>
+                            <select id="currencySelect" class="form-control" style="background-color: #f9fafb;">
+                                <option value="USD">USD</option>
+                                <option value="INR">INR</option>
+                                <option value="EUR">EUR</option>
+                                <option value="GBP">GBP</option>
+                                <option value="JPY">JPY</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px;">
+                        <div class="form-group">
+                            <label>Category *</label>
+                            <select id="categorySelect" class="form-control" style="background-color: #f9fafb;">
+                                <option value="" disabled selected>Select category</option>
+                                <option value="Travel">Travel</option>
+                                <option value="Meals">Meals</option>
+                                <option value="Software">Software</option>
+                                <option value="Supplies">Supplies</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Date *</label>
+                            <input type="date" id="dateInput" class="form-control" style="background-color: #f9fafb;">
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 32px;">
+                        <label>Description</label>
+                        <textarea id="descInput" class="form-control" rows="3" placeholder="Brief description of the expense..." style="background-color: #f9fafb; resize: none;"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary" style="background-color: #0d9488; height: 52px; border-radius: 12px; font-size: 16px;">
+                        Submit Expense
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 4px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Approval Pipeline Section -->
+            <div class="content-card submission-card">
+                <h2 style="font-size: 20px; font-weight: 700; margin-bottom: 32px;">Approval Pipeline</h2>
+                <div class="pipeline-list">
+                    <div class="pipeline-item active">
+                        <div class="pipeline-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        </div>
+                        <div class="pipeline-content">
+                            <h4>Submitted</h4>
+                        </div>
+                    </div>
+                    <div class="pipeline-item pending">
+                        <div class="pipeline-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                        <div class="pipeline-content">
+                            <h4>Manager Review</h4>
+                            <span>Awaiting review</span>
+                        </div>
+                    </div>
+                    <div class="pipeline-item">
+                        <div class="pipeline-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                        <div class="pipeline-content">
+                            <h4>Finance Approval</h4>
+                        </div>
+                    </div>
+                    <div class="pipeline-item">
+                        <div class="pipeline-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                        <div class="pipeline-content">
+                            <h4>Reimbursed</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Currency Conversion Section -->
+            <div class="content-card submission-card">
+                <div class="conv-header">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path><line x1="12" y1="18" x2="12" y2="20"></line><line x1="12" y1="4" x2="12" y2="6"></line></svg>
+                    <span>Currency Conversion</span>
+                </div>
+                <div class="conv-subtitle">Original amount → Converted to <span id="companyCurrencyName">INR</span> (₹)</div>
+                
+                <div class="conv-table">
+                    <div class="conv-row header">
+                        <span>Expense</span>
+                        <span>Original Amount</span>
+                        <span>Amount in <span id="targetCurrencyLabel">INR</span></span>
+                    </div>
+                    <!-- Live rows will be injected here by JS -->
+                    <div id="conversionRowsContainer">
+                        <div class="conv-row body">
+                            <div class="expense-type-info">
+                                <strong id="liveCategory">Flight ticket</strong>
+                                <span id="liveDesc">Travel</span>
+                            </div>
+                            <div class="original-amount-info">
+                                <span id="liveOrigAmount">$ 150 USD</span>
+                            </div>
+                            <div class="converted-amount-info">
+                                <span class="converted-val" id="liveConvAmount">₹ 12,525</span>
+                                <span class="conv-rate-info" id="liveRate">Rate: 1 USD = ₹ 83.5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</body>
+
+</html>
