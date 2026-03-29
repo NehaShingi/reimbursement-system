@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Reimbursements | ReimbursePro Manager</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script src="../static/js/managerds.js" defer></script>
+</head>
+
+<body class="dashboard-page">
+
+    <div class="admin-dashboard manager-dashboard">
+        <!-- Header -->
+        <header class="admin-header">
+            <div class="header-left">
+                <h1>Manager Dashboard</h1>
+            </div>
+
+            <div class="nav-right">
+                <div class="notification-bell">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                    </svg>
+                    <span class="dot"></span>
+                </div>
+                <div class="user-profile">
+                    <div class="initials-circle" style="background-color: var(--primary);">MS</div>
+                    <div class="user-info">
+                        <span class="user-name">Manager Sarah</span>
+                        <span class="user-role">Dept Head</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-label">Pending<br>Approval</div>
+                    <div class="stat-icon-circle amber">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                </div>
+                <div class="stat-value">2</div>
+                <div class="stat-footer trend-neutral">Awaiting review</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-label">Approved<br></div>
+                    <div class="stat-icon-circle">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                </div>
+                <div class="stat-value">12</div>
+                <div class="stat-footer trend-up"></div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-label">Rejected<br></div>
+                    <div class="stat-icon-circle red">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </div>
+                </div>
+                <div class="stat-value">3</div>
+                <div class="stat-footer trend-neutral"></div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-label">Total<br>Team</div>
+                    <div class="stat-icon-circle blue">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="stat-value">8</div>
+                <div class="stat-footer trend-neutral">Active members</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-label">Budget<br>Used</div>
+                    <div class="stat-icon-circle" style="background-color: #f3f4f6; color: var(--slate);">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="1" x2="12" y2="23"></line>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="stat-value">64%</div>
+                <div class="budget-progress">
+                    <div class="progress-fill" style="width: 64%;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Submissions Table -->
+        <div class="table-card">
+            <div class="table-header-row">
+                <div class="table-title-area">
+                    <h2>Recent Submissions</h2>
+                    <span class="table-subtitle">Showing all pending and recent team activity</span>
+                </div>
+                <div class="table-actions">
+                    <input type="text" id="memberFilter" class="filter-input" placeholder="Filter by member...">
+                </div>
+            </div>
+
+            <table class="data-table" id="teamTable">
+                <thead>
+                    <tr>
+                        <th>Employee</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="employee-cell">
+                                <div class="avatar-sm" style="background-color: #eff6ff; color: #3b82f6;">JS</div>
+                                <div class="emp-info">
+                                    <span class="emp-name">Jane Smith</span>
+                                    <span class="emp-email">jane@company.com</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Travel</td>
+                        <td class="amount-col">$450.00</td>
+                        <td>Mar 28, 2026</td>
+                        <td><span class="badge badge-pending">Pending</span></td>
+                        <td><button class="review-btn" data-id="1">Review</button></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="employee-cell">
+                                <div class="avatar-sm" style="background-color: #f5f3ff; color: #8b5cf6;">BW</div>
+                                <div class="emp-info">
+                                    <span class="emp-name">Bob Wilson</span>
+                                    <span class="emp-email">bob@company.com</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Meals</td>
+                        <td class="amount-col">$120.00</td>
+                        <td>Mar 27, 2026</td>
+                        <td><span class="badge badge-pending">Pending</span></td>
+                        <td><button class="review-btn" data-id="2">Review</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Review Side Panel Overlay -->
+    <div class="review-panel-overlay" id="panelOverlay"></div>
+    <div class="review-panel" id="reviewPanel">
+        <div class="review-header">
+            <h2>Expense Review</h2>
+            <p id="reviewEmpName">Jane Smith — Mar 28, 2026</p>
+        </div>
+
+        <div class="review-details">
+            <div class="detail-row">
+                <div class="detail-label">Category</div>
+                <div class="detail-value" id="reviewCategory">Travel & Lodging</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Amount Requested</div>
+                <div class="detail-value" id="reviewAmount" style="font-size: 24px; color: var(--primary);">$450.00
+                </div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Description</div>
+                <div class="detail-value" id="reviewDesc">Conference trip to Chicago - Flight and hotel.</div>
+            </div>
+            <div class="detail-row" style="margin-top: 32px;">
+                <div class="detail-label">Receipt Image</div>
+                <div
+                    style="width: 100%; height: 200px; background-color: #f1f5f9; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #9ca3af; border: 1px dashed #e2e8f0;">
+                    Preview Loading...
+                </div>
+            </div>
+        </div>
+
+        <div class="review-actions">
+            <button class="btn-approve" id="btnApprove">Approve Expense</button>
+            <button class="btn-reject" id="btnReject">Reject Submission</button>
+            <button class="btn-clarify">Request Clarification</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
