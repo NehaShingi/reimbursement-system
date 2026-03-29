@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary: #10b981;
+    --primary-hover: #059669;
+    --slate: #111827;
+    --slate-light: #6b7280;
+    --bg: #f9fafb;
+    --card-bg: #ffffff;
+    --input-bg: #f3f4f6;
+    --input-border: #e5e7eb;
+    --radius: 10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg);
+    color: var(--slate);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Logo Section */
+.brand-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    fill: #ffffff;
+}
+
+.brand-name {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--slate);
+}
+
+.brand-name span {
+    color: var(--primary);
+}
+
+.brand-subtitle {
+    color: var(--slate-light);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* Card Container */
+.auth-container {
+    width: 100%;
+    max-width: 440px;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.auth-card {
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: var(--radius);
+    border: 1px solid #f1f5f9;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--slate);
+}
+
+.form-control {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 1px solid var(--input-border);
+    background-color: var(--input-bg);
+    transition: all 0.2s ease-in-out;
+    outline: none;
+    color: var(--slate);
+}
+
+.form-control:focus {
+    border-color: var(--primary);
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+}
+
+.form-control::placeholder {
+    color: #9ca3af;
+}
+
+/* Password Toggle Wrapper */
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper input {
+    padding-right: 48px;
+}
+
+.eye-toggle {
+    position: absolute;
+    right: 14px;
+    background: none;
+    border: none;
+    color: #9ca3af;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    transition: color 0.2s;
+}
+
+.eye-toggle:hover {
+    color: var(--slate);
+}
+
+.eye-toggle svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Button & Actions */
+.btn-primary {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background-color 0.2s ease;
+    margin-top: 8px;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn-primary svg {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.2s;
+}
+
+.btn-primary:hover svg {
+    transform: translateX(4px);
+}
+
+/* Footer Link */
+.auth-footer {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 14px;
+    color: var(--slate-light);
+    font-weight: 500;
+}
+
+.auth-footer a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 4px;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Signup Specific Adjustments */
+.signup-card {
+    max-width: 500px;
+}
+
+.currency-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    background-color: #ecfdf5;
+    color: var(--primary);
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 8px;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.error-message {
+    color: #ef4444;
+    font-size: 12px;
+    margin-top: 6px;
+    display: none;
+    font-weight: 500;
+    animation: slideUp 0.2s ease-out;
+}
+
+.invalid .form-control {
+    border-color: #ef4444;
+    background-color: #fef2f2;
+}
+
+.invalid .error-message {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 480px) {
+    .auth-card {
+        padding: 30px 20px;
+    }
+}
