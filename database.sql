@@ -1,74 +1,21 @@
-CREATE DATABASE expense_app;
-USE expense_app;
-
--- Users Table
 CREATE TABLE users (
-  id INT PRIMARY KEY AUTO_INCREMENT,
+  id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(100),
-  email VARCHAR(100) UNIQUE,
-  password VARCHAR(255),
-  role ENUM( 'employee','manager','admin')
-  manager_id INT,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (manager_id) REFERENCES users(id)
+  email VARCHAR(100),
+  password VARCHAR(100),
+  role VARCHAR(20)
 );
 
--- Expenses Table
-CREATE TABLE expenses (
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  user_id INT,
-  description VARCHAR(255),
-  category VARCHAR(100),
-  expense_date DATE,
-  amount DECIMAL(10,2),
-  paid_by VARCHAR(50),
-  receipt_url VARCHAR(255),
-  status ENUM('pending' , 'approved' , 'rejected')
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (user_id) REFERENCES users(id)
-);
-
--- Approvals Table
-CREATE TABLE approvals (
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  expense_id INT,
-  approver_id INT,
-  status ENUM('pending' , 'approved' , 'rejected')
-  step_number INT,
-  comments VARCHAR(255),
-  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (expense_id) REFERENCES expenses(id),
-  FOREIGN KEY (approver_id) REFERENCES users(id)
-);
-
--- Approval_rules Table
-CREATE TABLE approval_rules (
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  rule_name VARCHAR(100),
-  category VARCHAR(100),
-  min_amount DECIMAL(10,2),
-  max_amount DECIMAL(10,2),
-  created_by INT,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (created_by) REFERENCES users(id)
-);
-
--- Rule_Approvers Table
-CREATE TABLE rule_approvers (
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  rule_id INT,
-  approver_id INT,
-  step_number INT,
-  is_required BOOLEAN,
-  FOREIGN KEY (rule_id) REFERENCES approval_rules(id),
-  FOREIGN KEY (approver_id) REFERENCES users(id)
-);
-
--- Receiepts Table
 CREATE TABLE receipts (
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  expense_id INT,
-  file_url VARCHAR(255),
-  uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (expense_id) REFERENCES expenses(id)
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  file_path VARCHAR(255)
+);
+
+CREATE TABLE expenses (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  amount FLOAT,
+  category VARCHAR(50),
+  date DATE,
+  description TEXT,
+  status VARCHAR(20)
 );

@@ -1,385 +1,553 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User Management | ReimbursePro</title>
-<<<<<<< HEAD
-    <link rel="stylesheet" href="../static/css/style.css">
-    <script src="../static/js/adminds.js" defer></script>
-=======
-    <link rel="stylesheet" href="style.css">
+
+    =======
+    <link rel="stylesheet" href="style.css" />
     <script src="adminds.js" defer></script>
->>>>>>> 8d689cd (Restructured frontend directory and redesigned Employee Dashboard)
-</head>
+    >>>>>>> 8d689cd (Restructured frontend directory and redesigned Employee
+    Dashboard)
+  </head>
 
-<body class="dashboard-page">
-
+  <body class="dashboard-page">
     <div class="admin-dashboard">
-        <!-- Header -->
-        <header class="admin-header">
-            <div class="header-left">
-                <h1>Admin Dashboard</h1>
-            </div>
+      <!-- Header -->
+      <header class="admin-header">
+        <div class="header-left">
+          <h1>Admin Dashboard</h1>
+        </div>
 
-            <div class="header-center">
-                <div class="search-input-wrapper header-search">
-                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                        stroke-width="2" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-                    </svg>
-                    <input type="text" class="search-field" placeholder="Search...">
-                </div>
-            </div>
+        <div class="header-center">
+          <div class="search-input-wrapper header-search">
+            <svg
+              class="search-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+              />
+            </svg>
+            <input type="text" class="search-field" placeholder="Search..." />
+          </div>
+        </div>
 
-            <div class="nav-right">
-                <div class="notification-bell" id="notificationBtn">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-                        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-                    </svg>
-                    <span class="dot"></span>
-                </div>
-                <div class="user-profile">
-                    <div class="initials-circle avatar-jd">JD</div>
-                    <div class="user-info">
-                        <span class="user-name">John Doe</span>
-                        <span class="user-role">Admin</span>
+        <div class="nav-right">
+          <div class="notification-bell" id="notificationBtn">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+            <span class="dot"></span>
+          </div>
+          <div class="user-profile">
+            <div class="initials-circle avatar-jd">JD</div>
+            <div class="user-info">
+              <span class="user-name">John Doe</span>
+              <span class="user-role">Admin</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main User Management View -->
+      <main class="dashboard-view active">
+        <div class="table-card">
+          <div class="table-header-row">
+            <div class="table-title-area">
+              <h2>All Employees</h2>
+              <span class="table-subtitle"
+                ><span id="recordCount">6</span> of 6 records</span
+              >
+            </div>
+            <div class="table-actions">
+              <div class="search-input-wrapper table-search">
+                <svg
+                  class="search-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                  />
+                </svg>
+                <input
+                  type="text"
+                  id="tableFilter"
+                  class="search-field filter-input"
+                  placeholder="Filter employees..."
+                />
+              </div>
+              <button class="btn-add-user" id="btnAddUser">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                Add Employee
+              </button>
+            </div>
+          </div>
+
+          <table class="data-table" id="employeeTable">
+            <thead>
+              <tr>
+                <th>Employee</th>
+                <th>Role</th>
+                <th class="text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="employee-cell">
+                    <div class="avatar-sm avatar-jd">JD</div>
+                    <div class="emp-info">
+                      <span class="emp-name">John Doe</span>
+                      <span class="emp-email">john@company.com</span>
                     </div>
-                </div>
-            </div>
-        </header>
-
-        <!-- Main User Management View -->
-        <main class="dashboard-view active">
-            <div class="table-card">
-                <div class="table-header-row">
-                    <div class="table-title-area">
-                        <h2>All Employees</h2>
-                        <span class="table-subtitle"><span id="recordCount">6</span> of 6 records</span>
+                  </div>
+                </td>
+                <td><span class="role-badge role-admin">Admin</span></td>
+                <td class="text-right">
+                  <div class="action-btn-group">
+                    <button class="action-icon-btn edit">
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path
+                          d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                        ></path>
+                        <path
+                          d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                        ></path>
+                      </svg>
+                    </button>
+                    <button class="action-icon-btn delete">
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <polyline points="3 6 5 6 21 6"></polyline>
+                        <path
+                          d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                        ></path>
+                        <line x1="10" y1="11" x2="10" y2="17"></line>
+                        <line x1="14" y1="11" x2="14" y2="17"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="employee-cell">
+                    <div class="avatar-sm avatar-js">JS</div>
+                    <div class="emp-info">
+                      <span class="emp-name">Jane Smith</span>
+                      <span class="emp-email">jane@company.com</span>
                     </div>
-                    <div class="table-actions">
-                        <div class="search-input-wrapper table-search">
-                            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="2" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-                            </svg>
-                            <input type="text" id="tableFilter" class="search-field filter-input"
-                                placeholder="Filter employees...">
-                        </div>
-                        <button class="btn-add-user" id="btnAddUser">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                            Add Employee
-                        </button>
+                  </div>
+                </td>
+                <td><span class="role-badge role-manager">Manager</span></td>
+                <td class="text-right">
+                  <div class="action-btn-group">
+                    <button class="action-icon-btn edit">
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path
+                          d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                        ></path>
+                        <path
+                          d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                        ></path>
+                      </svg>
+                    </button>
+                    <button class="action-icon-btn delete">
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <polyline points="3 6 5 6 21 6"></polyline>
+                        <path
+                          d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                        ></path>
+                        <line x1="10" y1="11" x2="10" y2="17"></line>
+                        <line x1="14" y1="11" x2="14" y2="17"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="employee-cell">
+                    <div class="avatar-sm avatar-bw">BW</div>
+                    <div class="emp-info">
+                      <span class="emp-name">Bob Wilson</span>
+                      <span class="emp-email">bob@company.com</span>
                     </div>
-                </div>
-
-                <table class="data-table" id="employeeTable">
-                    <thead>
-                        <tr>
-                            <th>Employee</th>
-                            <th>Role</th>
-                            <th class="text-right">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div class="employee-cell">
-                                    <div class="avatar-sm avatar-jd">JD</div>
-                                    <div class="emp-info">
-                                        <span class="emp-name">John Doe</span>
-                                        <span class="emp-email">john@company.com</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><span class="role-badge role-admin">Admin</span></td>
-                            <td class="text-right">
-                                <div class="action-btn-group">
-                                    <button class="action-icon-btn edit">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                                        </svg>
-                                    </button>
-                                    <button class="action-icon-btn delete">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <polyline points="3 6 5 6 21 6"></polyline>
-                                            <path
-                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
-                                            </path>
-                                            <line x1="10" y1="11" x2="10" y2="17"></line>
-                                            <line x1="14" y1="11" x2="14" y2="17"></line>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="employee-cell">
-                                    <div class="avatar-sm avatar-js">JS</div>
-                                    <div class="emp-info">
-                                        <span class="emp-name">Jane Smith</span>
-                                        <span class="emp-email">jane@company.com</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><span class="role-badge role-manager">Manager</span></td>
-                            <td class="text-right">
-                                <div class="action-btn-group">
-                                    <button class="action-icon-btn edit">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                                        </svg>
-                                    </button>
-                                    <button class="action-icon-btn delete">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <polyline points="3 6 5 6 21 6"></polyline>
-                                            <path
-                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
-                                            </path>
-                                            <line x1="10" y1="11" x2="10" y2="17"></line>
-                                            <line x1="14" y1="11" x2="14" y2="17"></line>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="employee-cell">
-                                    <div class="avatar-sm avatar-bw">BW</div>
-                                    <div class="emp-info">
-                                        <span class="emp-name">Bob Wilson</span>
-                                        <span class="emp-email">bob@company.com</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><span class="role-badge role-employee">Employee</span></td>
-                            <td class="text-right">
-                                <div class="action-btn-group">
-                                    <button class="action-icon-btn edit">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                                        </svg>
-                                    </button>
-                                    <button class="action-icon-btn delete">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <polyline points="3 6 5 6 21 6"></polyline>
-                                            <path
-                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
-                                            </path>
-                                            <line x1="10" y1="11" x2="10" y2="17"></line>
-                                            <line x1="14" y1="11" x2="14" y2="17"></line>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="employee-cell">
-                                    <div class="avatar-sm avatar-ab">AB</div>
-                                    <div class="emp-info">
-                                        <span class="emp-name">Alice Brown</span>
-                                        <span class="emp-email">alice@company.com</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><span class="role-badge role-employee">Employee</span></td>
-                            <td class="text-right">
-                                <div class="action-btn-group">
-                                    <button class="action-icon-btn edit">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                                        </svg>
-                                    </button>
-                                    <button class="action-icon-btn delete">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <polyline points="3 6 5 6 21 6"></polyline>
-                                            <path
-                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
-                                            </path>
-                                            <line x1="10" y1="11" x2="10" y2="17"></line>
-                                            <line x1="14" y1="11" x2="14" y2="17"></line>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="employee-cell">
-                                    <div class="avatar-sm avatar-cd">CD</div>
-                                    <div class="emp-info">
-                                        <span class="emp-name">Charlie Davis</span>
-                                        <span class="emp-email">charlie@company.com</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><span class="role-badge role-employee">Employee</span></td>
-                            <td class="text-right">
-                                <div class="action-btn-group">
-                                    <button class="action-icon-btn edit">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                                        </svg>
-                                    </button>
-                                    <button class="action-icon-btn delete">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <polyline points="3 6 5 6 21 6"></polyline>
-                                            <path
-                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
-                                            </path>
-                                            <line x1="10" y1="11" x2="10" y2="17"></line>
-                                            <line x1="14" y1="11" x2="14" y2="17"></line>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="employee-cell">
-                                    <div class="avatar-sm avatar-dm">DM</div>
-                                    <div class="emp-info">
-                                        <span class="emp-name">Diana Miller</span>
-                                        <span class="emp-email">diana@company.com</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><span class="role-badge role-employee">Employee</span></td>
-                            <td class="text-right">
-                                <div class="action-btn-group">
-                                    <button class="action-icon-btn edit">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                                        </svg>
-                                    </button>
-                                    <button class="action-icon-btn delete">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <polyline points="3 6 5 6 21 6"></polyline>
-                                            <path
-                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
-                                            </path>
-                                            <line x1="10" y1="11" x2="10" y2="17"></line>
-                                            <line x1="14" y1="11" x2="14" y2="17"></line>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </main>
+                  </div>
+                </td>
+                <td><span class="role-badge role-employee">Employee</span></td>
+                <td class="text-right">
+                  <div class="action-btn-group">
+                    <button class="action-icon-btn edit">
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path
+                          d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                        ></path>
+                        <path
+                          d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                        ></path>
+                      </svg>
+                    </button>
+                    <button class="action-icon-btn delete">
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <polyline points="3 6 5 6 21 6"></polyline>
+                        <path
+                          d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                        ></path>
+                        <line x1="10" y1="11" x2="10" y2="17"></line>
+                        <line x1="14" y1="11" x2="14" y2="17"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="employee-cell">
+                    <div class="avatar-sm avatar-ab">AB</div>
+                    <div class="emp-info">
+                      <span class="emp-name">Alice Brown</span>
+                      <span class="emp-email">alice@company.com</span>
+                    </div>
+                  </div>
+                </td>
+                <td><span class="role-badge role-employee">Employee</span></td>
+                <td class="text-right">
+                  <div class="action-btn-group">
+                    <button class="action-icon-btn edit">
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path
+                          d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                        ></path>
+                        <path
+                          d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                        ></path>
+                      </svg>
+                    </button>
+                    <button class="action-icon-btn delete">
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <polyline points="3 6 5 6 21 6"></polyline>
+                        <path
+                          d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                        ></path>
+                        <line x1="10" y1="11" x2="10" y2="17"></line>
+                        <line x1="14" y1="11" x2="14" y2="17"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="employee-cell">
+                    <div class="avatar-sm avatar-cd">CD</div>
+                    <div class="emp-info">
+                      <span class="emp-name">Charlie Davis</span>
+                      <span class="emp-email">charlie@company.com</span>
+                    </div>
+                  </div>
+                </td>
+                <td><span class="role-badge role-employee">Employee</span></td>
+                <td class="text-right">
+                  <div class="action-btn-group">
+                    <button class="action-icon-btn edit">
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path
+                          d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                        ></path>
+                        <path
+                          d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                        ></path>
+                      </svg>
+                    </button>
+                    <button class="action-icon-btn delete">
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <polyline points="3 6 5 6 21 6"></polyline>
+                        <path
+                          d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                        ></path>
+                        <line x1="10" y1="11" x2="10" y2="17"></line>
+                        <line x1="14" y1="11" x2="14" y2="17"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="employee-cell">
+                    <div class="avatar-sm avatar-dm">DM</div>
+                    <div class="emp-info">
+                      <span class="emp-name">Diana Miller</span>
+                      <span class="emp-email">diana@company.com</span>
+                    </div>
+                  </div>
+                </td>
+                <td><span class="role-badge role-employee">Employee</span></td>
+                <td class="text-right">
+                  <div class="action-btn-group">
+                    <button class="action-icon-btn edit">
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path
+                          d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                        ></path>
+                        <path
+                          d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                        ></path>
+                      </svg>
+                    </button>
+                    <button class="action-icon-btn delete">
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <polyline points="3 6 5 6 21 6"></polyline>
+                        <path
+                          d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                        ></path>
+                        <line x1="10" y1="11" x2="10" y2="17"></line>
+                        <line x1="14" y1="11" x2="14" y2="17"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
     </div>
 
     <!-- Add Employee Modal -->
     <div id="addUserModal" class="modal-overlay">
-        <div class="modal-container">
-            <div class="modal-card">
-                <div class="modal-header">
-                    <div class="modal-icon-wrapper">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="8.5" cy="7" r="4"></circle>
-                            <line x1="20" y1="8" x2="20" y2="14"></line>
-                            <line x1="17" y1="11" x2="23" y2="11"></line>
-                        </svg>
-                    </div>
-                    <div class="modal-title-desc">
-                        <h3>New Employee Details</h3>
-                        <p>Fill in all the required information below.</p>
-                    </div>
-                </div>
-
-                <form id="addEmployeeForm" class="modal-form">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" placeholder="Enter name" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" placeholder="Enter password" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="reportingManager">Reporting Manager</label>
-                        <select id="reportingManager" required>
-                            <option value="" disabled selected>Select reporting manager</option>
-                            <option value="john_doe">John Doe (Employee)</option>
-                            <option value="jane_smith">Jane Smith (Manager)</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="role">Role</label>
-                        <select id="role" required>
-                            <option value="" disabled selected>Select role</option>
-                            <option value="Manager">Manager</option>
-                            <option value="Employee">Employee</option>
-                        </select>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn-cancel" id="btnCancelAdd">Cancel</button>
-                        <button type="submit" class="btn-primary-add">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="8.5" cy="7" r="4"></circle>
-                                <line x1="20" y1="8" x2="20" y2="14"></line>
-                                <line x1="17" y1="11" x2="23" y2="11"></line>
-                            </svg>
-                            Add Employee
-                        </button>
-                    </div>
-                </form>
+      <div class="modal-container">
+        <div class="modal-card">
+          <div class="modal-header">
+            <div class="modal-icon-wrapper">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="8.5" cy="7" r="4"></circle>
+                <line x1="20" y1="8" x2="20" y2="14"></line>
+                <line x1="17" y1="11" x2="23" y2="11"></line>
+              </svg>
             </div>
+            <div class="modal-title-desc">
+              <h3>New Employee Details</h3>
+              <p>Fill in all the required information below.</p>
+            </div>
+          </div>
+
+          <form id="addEmployeeForm" class="modal-form">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" placeholder="Enter name" required />
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                placeholder="Enter password"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="reportingManager">Reporting Manager</label>
+              <select id="reportingManager" required>
+                <option value="" disabled selected>
+                  Select reporting manager
+                </option>
+                <option value="john_doe">John Doe (Employee)</option>
+                <option value="jane_smith">Jane Smith (Manager)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="role">Role</label>
+              <select id="role" required>
+                <option value="" disabled selected>Select role</option>
+                <option value="Manager">Manager</option>
+                <option value="Employee">Employee</option>
+              </select>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn-cancel" id="btnCancelAdd">
+                Cancel
+              </button>
+              <button type="submit" class="btn-primary-add">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="8.5" cy="7" r="4"></circle>
+                  <line x1="20" y1="8" x2="20" y2="14"></line>
+                  <line x1="17" y1="11" x2="23" y2="11"></line>
+                </svg>
+                Add Employee
+              </button>
+            </div>
+          </form>
         </div>
+      </div>
     </div>
-
-</body>
-
+  </body>
 </html>
